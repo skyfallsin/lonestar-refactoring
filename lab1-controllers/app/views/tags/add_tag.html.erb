@@ -1,0 +1,7 @@
+<h1>Add Tags for <%= @link.name %></h1>
+
+<% form_tag "/tags/add_tag" do %>
+	<%= hidden_field_tag "link_id", @link.id %>
+	Tag: <%= text_field_tag "tag[text]" %><br/><br/>
+	<%= submit_tag "Save New Tag" %>
+<% end %>

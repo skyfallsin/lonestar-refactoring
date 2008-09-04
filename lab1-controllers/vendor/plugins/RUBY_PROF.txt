@@ -1,0 +1,31 @@
+ruby-prof API
+
+The second way is to use the ruby-prof API to profile particular segments of code.
+
+  require 'ruby-prof'
+
+  # Profile the code
+  RubyProf.start
+  ...
+  [code to profile]
+  ...
+  result = RubyProf.stop
+
+  # Print a flat profile to text
+  printer = RubyProf::FlatPrinter.new(result)
+  printer.print(STDOUT, 0)
+
+Alternatively, you can use a block to tell ruby-prof what to profile:
+
+  require 'ruby-prof'
+
+  # Profile the code
+  result = RubyProf.profile do
+    ...
+    [code to profile]
+    ...
+  end
+
+  # Print a graph profile to text
+  printer = RubyProf::GraphPrinter.new(result)
+  printer.print(STDOUT, 0)

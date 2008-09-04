@@ -1,0 +1,23 @@
+<%= link_to "Post A New Link", "/links/add_link" %><br/><br/>
+
+<table>
+	<tr>
+		<th>Name</th>
+		<th>URL</th>
+		<th>Created At</th>
+	</tr>
+	<% @links.each do |link| %>
+		<tr>
+			<td><%= link.name %></td>
+			<td><%= link_to link.url, link.url %></td>
+			<td><%= link.created_at %></td>
+			<td><%= link_to "Edit", "/links/edit_link?link_id=#{link.id}" %></td>
+			<td>Tags: <%= if link.tags.size > 0
+				link.tags.collect{|x| x.text }.join(", ")
+			else
+				"None"
+			end %></td>
+			<td><%= link_to "Add Tags", "/tags/add_tag?link_id=#{link.id}" %></td>
+		</tr>
+	<% end %>
+</table>

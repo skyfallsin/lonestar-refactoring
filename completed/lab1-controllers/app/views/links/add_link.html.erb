@@ -1,0 +1,7 @@
+<h1>Post A New Link</h1>
+
+<% form_tag "/links/add_link" do %>
+	Name: <%= text_field_tag "link[name]" %><br/><br/>
+	URL: <%= text_field_tag "link[url]" %><br/><br/>
+	<%= submit_tag "Post Link" %>
+<% end %>

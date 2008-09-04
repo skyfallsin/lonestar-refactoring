@@ -1,0 +1,8 @@
+<h1>Edit Link:</h1>
+
+<% form_tag "/links/update_link" do %>
+	Name: <%= text_field_tag "link[name]", @link.name %><br/><br/>
+	URL: <%= text_field_tag "link[url]", @link.url %><br/><br/>
+	<%= hidden_field_tag "link_id", @link.id %>
+	<%= submit_tag "Save Link" %>
+<% end %>
